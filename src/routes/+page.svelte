@@ -1,16 +1,14 @@
 <script>
+  import ProductCard from '$lib/components/ProductCard.svelte';
+
     export let data;
 </script>
 
-<main>
+<main class="p-6">
     <!-- we will do it later -->
-    <h1>This is our store front</h1>
-    <ul>
-    {#each data.products as product }
-        <li>
-            <img src="{product.imageUrl}" alt="Product Picture" />
-            <a href="{product.paymentUrl}">{product.name} - {product.price}</a>
-        </li>
-    {/each}
-    </ul>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {#each data.products as product }
+        <ProductCard product={product} />
+        {/each}
+    </div>
 </main>
